@@ -6,8 +6,11 @@
             
         </div>
 
+        
         <app-search-input (textChange)="onTextChange($event)"></app-search-input>
-        <ng-container *ngIf="products != null">
+
+
+        <ng-container *ngIf="products != null && previousKeyword != '' ">
             <h4 class="header"> Search results for: {{ previousKeyword }} </h4>
             <ol *ngIf="products.length > 0; else noResults"></ol>
             <ng-template #noResults>
@@ -68,7 +71,8 @@
 
                                     </ngb-pagination>
                                 </div>
-
+                                
+                                <!--
                                 <div class="col-md-3 mt-2" style="text-align: right;">
                                     <span class="mr-2">Page Size </span>
                                     <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
@@ -80,6 +84,8 @@
 
                                     </select>
                                 </div>
+
+                                -->
 
                             </div>
                         </div>

@@ -84,8 +84,8 @@ export class ProductListComponent implements OnInit {
     }
     else {
       // not category id available ... default to category id 1
-      this.currentCategoryId = 1;
-      this.currentCategoryName = "Books";
+      this.goBackToDefault();
+      
     }
 
     //prüfe, ob es sich um eine neue Kategorie handelt als die davor
@@ -138,18 +138,25 @@ export class ProductListComponent implements OnInit {
 
   onTextChange(changedText: string) {
     this.cancelPendingRequests();
-    const productSubscription = this.productService
+
+    if(!changedText) {
+
+      this.listProducts();
+
+    }else{
+      
+      const productSubscription = this.productService
       .getResults(changedText)
       .pipe(takeUntil(this.unsubscribe$)).subscribe(
         data => {
           this.products = data;
         },
         errorResponse => {
-          alert("oh no, there was an error when calling the api");
           console.error(errorResponse);
         })
 
     this.searchRequestSubscriptions.push(productSubscription);
+    }
   }
 
   cancelPendingRequests() {
@@ -158,4 +165,14 @@ export class ProductListComponent implements OnInit {
 
 
 
+  goBackToDefault() {
+    this.currentCategoryId = 1;
+    this.currentCategoryName = "Books";
+    this.pageNumber = 1;
+    this.pageSize = 5;
+  }
+
+
 }
+
+
