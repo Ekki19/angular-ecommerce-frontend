@@ -138,11 +138,11 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
     -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
     -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
     box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
-    position:fixed;
+    position: fixed;
     top:0;
     right:0;
     left:200px;
-    height:75px;
+    height:84px;
     z-index:3
 }
 
@@ -379,6 +379,39 @@ input.au-input.au-input-xl{
 
 .navbar-sidebar .navbar-list li a:hover{
     color:#0da8e4
+}
+
+.navbar {
+    background-color: #333;
+    padding: 0 20px;
+    display: flex;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Distributes items evenly with space around them */
+     align-items: center; /* Center the nav items vertically */
+    height: 70px; /* Set a fixed height if needed */
+}
+
+.nav-item {
+    display: inline; /* Ensures each item is treated as an inline element */
+    
+}
+
+.nav-item a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.nav-item a:hover {
+    background-color: #111;
 }
 
 /* 
@@ -856,7 +889,7 @@ footer ul li{
         padding-bottom:100px
     }
      .cart-area.d-n{
-        display:none
+        display:none;
     }
     .form-header{
         -webkit-box-pack:center;
@@ -875,7 +908,7 @@ footer ul li{
         position:relative;
         top:0;
         left:0;
-        height:80px
+        height:84px
     }
     .header-wrap{
         -webkit-box-orient:vertical;
