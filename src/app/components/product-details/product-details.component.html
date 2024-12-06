@@ -12,12 +12,13 @@
         <h4>Description</h4>
         <p>{{ product.description }}</p>
 
-        <a routerLink="/products" class="mt-5">Back to Product List</a>
-        <ng-template *ngIf="lastRoute != null">
-            <div class="container-fluid">
-                <a routerLink="{{ lastRoute }}" class="mt-5 ml-4">Back to Cart List</a>
-            </div>
-        </ng-template>
+        <div class="container-fluid">
+            <a routerLink="/products" class="mt-5">Back to Product List</a>
+        </div>
+
+        <div *ngIf="lastRoute !== null" class="container-fluid"> or
+            <a (click)="goBackToCartDetails()" class="mt-5 ml-4">Back to Cart List</a>
+        </div>
 
 
 

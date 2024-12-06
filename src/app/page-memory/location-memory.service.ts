@@ -30,10 +30,18 @@ export class LocationMemoryService {
 
 
   public setLastRoute(value: string) {
-    localStorage.setItem(this.lastRouteKey, value);
+    if(value){
+      localStorage.setItem(this.lastRouteKey, value);
+      console.log(`lastRoute: ${this._lastRoute}`);
+    }
+
+
   }
 
   public getLastRoute(): string | null {
-    return localStorage.getItem(this.lastRouteKey);
+    const lastRoute = localStorage.getItem(this.lastRouteKey);
+    console.log(`Retrieved lastRoute: ${lastRoute}`);
+    return lastRoute;
+
   }
 }
