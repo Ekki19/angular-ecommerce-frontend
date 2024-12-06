@@ -23,13 +23,13 @@ export class CartDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.listCartDetails();
-    this.pageMemory.register();
+  
   }
   
   
   
   listCartDetails() {
-
+    //this.pageMemory.register();
     this.cartItems = this.cartService.cartItems;
 
     this.cartService.totalPrice.subscribe(
