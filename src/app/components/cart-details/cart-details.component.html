@@ -13,7 +13,7 @@
 
                     <tr *ngFor="let tempCartItem of cartItems">
                         <td>
-                            <a routerLink="/products/ {{ tempCartItem.id }}">
+                            <a routerLink="/products/{{tempCartItem.id}}">
                                 <img src="{{ tempCartItem.imageUrl }}" class="img-responsive" width="200px"/>
                             </a>
                         </td>
