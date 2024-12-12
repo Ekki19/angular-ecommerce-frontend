@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CartItem } from 'src/app/common/cart-item';
-import { LocationMemoryService } from 'src/app/page-memory/location-memory.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -18,7 +17,6 @@ export class CartDetailsComponent implements OnInit {
   totalQuantity: number = 0;
 
   constructor(private cartService: CartService,
-              private pageMemory: LocationMemoryService
     ) { }
 
   ngOnInit(): void {
@@ -29,7 +27,6 @@ export class CartDetailsComponent implements OnInit {
   
   
   listCartDetails() {
-    //this.pageMemory.register();
     this.cartItems = this.cartService.cartItems;
 
     this.cartService.totalPrice.subscribe(

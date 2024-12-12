@@ -18,6 +18,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { NgxPagememoryModule } from 'ngx-pagememory';
+import { PageMemoryModule } from './page-memory/page-memory.module';
 
 const routes: Routes = [
   {path: 'checkout', component: CheckoutComponent},
@@ -49,8 +50,8 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    NgxPagememoryModule.forRoot()
-  ],
+    PageMemoryModule.forRoot()
+    ],
   providers: [ProductService],
   bootstrap: [AppComponent]
 })

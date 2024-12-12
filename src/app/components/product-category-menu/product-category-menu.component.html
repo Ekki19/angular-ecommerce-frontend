@@ -19,7 +19,7 @@
     <nav class="navbar">
         <ul class="nav-list"  *ngFor="let tempProductCategory of productCategories">
             <li class="nav-item">
-                <a routerLink="/category/{{ tempProductCategory.id }}/{{ tempProductCategory.categoryName }}" routerLinkActive="active-link">
+                <a routerLink="/category/{{tempProductCategory.id}}/{{tempProductCategory.categoryName}}" routerLinkActive="active-link">
                     {{ tempProductCategory.categoryName }}
                 </a>
             </li>
