@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Router, RouterEvent,Event } from '@angular/router';
-import { filter, last } from 'rxjs';
+import { Router, RouterEvent,Event, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 
 
 @Injectable({
@@ -14,28 +14,21 @@ export class LocationMemoryService {
   lastRouteKey = "lastRoute"
   _lastRoute: string | null = null;
 
-  private isInitialized: boolean = false;  // Flag hinzufügen
-  private routerEventSubscription: any;
-
   constructor(private router: Router) { }
 
   register(): void {
-    if (this.isInitialized) {
-      return;  // Verhindert, dass die Methode mehr als einmal ausgeführt wird
-    }
     let currentRoute = this.getCurrentRoute();
     console.log(`currentRoute register: ${currentRoute}`);
 
     if(currentRoute != null) {
       this.router.navigateByUrl(currentRoute);
     }
-    if(!this.routerEventSubscription){
-      this.routerEventSubscription = this.router.events.pipe(
-        filter((event: Event): event is RouterEvent => event instanceof RouterEvent))
-        .subscribe((event: RouterEvent) => {
-          this.setCurrentAndLastRoute(event.url);
-      });
-    }
+    this.router.events.pipe(
+      filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        this.setCurrentAndLastRoute(event.urlAfterRedirects);
+    });
+    
 
   }
 

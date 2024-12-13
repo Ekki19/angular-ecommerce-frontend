@@ -22,9 +22,9 @@ export class PageMemoryModule {
             provide: APP_INITIALIZER,
             deps: [LocationMemoryService],
             useFactory: (pM: LocationMemoryService) => () => {
-              console.log("APP_INITIALIZER aufgerufen");  // Debug-Nachricht, um zu prüfen, ob es funktioniert
-              pM.register();  // Deine neue Initialisierungsmethode
-              return Promise.resolve();  // Verhindere, dass das Initialisieren blockiert wird
+              console.log("APP_INITIALIZER aufgerufen");  
+              pM.register();
+              return Promise.resolve();
             },
             multi: true
           }
