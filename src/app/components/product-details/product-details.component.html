@@ -16,8 +16,8 @@
             <a routerLink="/products" class="mt-5">Back to Product List</a>
         </div>
 
-        <div class="container-fluid"> or
-            <a (click)="goBackToCartDetails()" class="mt-5 ml-4">Back to Cart List</a>
+        <div *ngIf="lastRoute === ('/cart-details')" class="container-fluid"> or
+            <a routerLink="" (click)="goBackToCartDetails()" class="mt-5 ml-4">Back to Cart List</a>
         </div>
 
 

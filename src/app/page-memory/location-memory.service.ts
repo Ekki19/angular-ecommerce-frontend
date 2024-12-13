@@ -18,18 +18,16 @@ export class LocationMemoryService {
 
   register(): void {
     let currentRoute = this.getCurrentRoute();
-    console.log(`currentRoute register: ${currentRoute}`);
 
     if(currentRoute != null) {
       this.router.navigateByUrl(currentRoute);
     }
-    this.router.events.pipe(
-      filter((event: Event): event is NavigationEnd => event instanceof NavigationEnd))
-      .subscribe((event: NavigationEnd) => {
-        this.setCurrentAndLastRoute(event.urlAfterRedirects);
-    });
     
-
+    this.router.events.subscribe( event => {
+      if (event instanceof NavigationEnd) {
+        this.setCurrentAndLastRoute(event.urlAfterRedirects);
+      }
+    });
   }
 
   public setCurrentAndLastRoute(value: string) {
