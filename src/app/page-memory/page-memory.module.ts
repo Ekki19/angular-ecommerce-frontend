@@ -9,7 +9,8 @@ import { LocationMemoryService } from './location-memory.service';
   declarations: [],
   imports: [
     CommonModule
-  ]
+  ],
+  providers: [LocationMemoryService]
 })
 export class PageMemoryModule { 
   
@@ -19,8 +20,12 @@ export class PageMemoryModule {
         providers: [
           {
             provide: APP_INITIALIZER,
-            deps: [LocationMemoryService, Router],
-            useFactory: (pM: LocationMemoryService) => () => pM.register(),
+            deps: [LocationMemoryService],
+            useFactory: (pM: LocationMemoryService) => () => {
+              console.log("APP_INITIALIZER aufgerufen");  
+              pM.register();
+              return Promise.resolve();
+            },
             multi: true
           }
         ]

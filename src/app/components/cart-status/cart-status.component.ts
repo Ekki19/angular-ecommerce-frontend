@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LocationMemoryService } from 'src/app/page-memory/location-memory.service';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -14,13 +13,10 @@ export class CartStatusComponent implements OnInit {
   totalQuantity: number = 0;
 
   constructor(private cartService: CartService,
-              private memoryService: LocationMemoryService
   ) { }
 
   ngOnInit(): void {
     this.updateCartStatus();
-    this.memoryService.register();
-
   }
   updateCartStatus() {
     this.cartService.totalPrice.subscribe(

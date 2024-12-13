@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router, RouterEvent, Event } from '@angular/router';
+import { filter } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-ecommerce';
+
 }
