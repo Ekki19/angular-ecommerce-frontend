@@ -19,8 +19,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchInputComponent } from './components/search-input/search-input.component';
 import { NgxPagememoryModule } from 'ngx-pagememory';
 import { PageMemoryModule } from './page-memory/page-memory.module';
+import { LoginComponent } from './components/login/login.component';
+import { FormsModule } from '@angular/forms';
+
 
 const routes: Routes = [
+  {path: 'login', component: LoginComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
@@ -42,7 +46,8 @@ const routes: Routes = [
     CartStatusComponent,
     CartDetailsComponent,
     CheckoutComponent,
-    SearchInputComponent
+    SearchInputComponent,
+    LoginComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
@@ -50,7 +55,8 @@ const routes: Routes = [
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    PageMemoryModule.forRoot()
+    PageMemoryModule.forRoot(),
+    FormsModule
     ],
   providers: [ProductService],
   bootstrap: [AppComponent]

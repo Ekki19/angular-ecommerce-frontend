@@ -1077,3 +1077,11 @@ footer ul li{
 h4 {
     color: hwb(0 38% 62%);
    }
+
+.login-form { 
+    display: flex;
+    flex-direction: column; 
+    margin: 50px auto;
+    text-align: center;
+    max-width: 450px;
+}
